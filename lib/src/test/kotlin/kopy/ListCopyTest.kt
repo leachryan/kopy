@@ -23,4 +23,23 @@ class ListCopyTest {
 
         assertEquals(expected, copy)
     }
+
+    @Test
+    fun `test array list inheriting copy extension function`() {
+        val original = arrayListOf("Hello", "World")
+        val copy = original.copy()
+
+        assertEquals(original, copy)
+    }
+
+    @Test
+    fun `test array list inheriting copy extension function with transformation`() {
+        val expected = arrayListOf("hello", "world")
+        val original = arrayListOf("Hello", "World")
+        val copy = original.copy {
+            it.toLowerCase()
+        }
+
+        assertEquals(expected, copy)
+    }
 }
